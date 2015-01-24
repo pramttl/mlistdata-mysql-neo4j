@@ -26,6 +26,10 @@ These commands are to be run on the shell in strict sequence for migrations to w
     python migrate_2_messages.py
     python migrate_3_people.py
 
+##### ER Model for data used in MySQL database:
+
+![ER Model](http://i.imgur.com/1UQyLn7.png =310x700)
+
 ##### The property graph model for the mailing list is as follows:
 
-![Mailing List Data](https://docs.google.com/drawings/d/14cFlMfKdFBMr9uN7Tygr1jtBRkb4wAZSAgXVjBYnlKQ/pub?w=700&h=560)
+![Mailing List Data](https://docs.google.com/drawings/d/14cFlMfKdFBMr9uN7Tygr1jtBRkb4wAZSAgXVjBYnlKQ/pub?w=600&h=560)
