@@ -39,7 +39,10 @@ db=_mysql.connect(host=host ,user=user, passwd=password, db=db)
 db.query("""SELECT * FROM mailing_lists_people""")
 result = db.use_result()
 
-# Returns all the rows in the table
+# Name of fields in the MySQL database.
+fields = [e[0] for e in result.describe()]
+
+# Returns all the rows in the MySQL table.
 rows = result.fetch_row(maxrows=0)
 
 # In our case the data has 2 fields.
@@ -58,7 +61,7 @@ for row in rows:
     email = row[0]
     mailing_list_url = row[1]
 
-    s = '''MERGE (u:MUser { email: "%(email)s"})
+    s = '''MERGE (u:MUser { %(primary_key_field)s: "%(email)s"})
            MERGE (m:MList { mailing_list_url: "%(mailing_list_url)s"})
-           CREATE UNIQUE u-[:BELONGS_TO]->m'''%{"email": email, "mailing_list_url": mailing_list_url }
+           CREATE UNIQUE u-[:BELONGS_TO]->m'''%{"primary_key_field": fields[0], "email": email, "mailing_list_url": mailing_list_url }
     n4j_graph.cypher.execute(s)
