@@ -28,7 +28,7 @@ These commands are to be run on the shell in strict sequence for migrations to w
 
 ##### ER Model for data used in MySQL database:
 
-![ER Model](http://i.imgur.com/1UQyLn7.png =310x700)
+![ER Model](http://i.imgur.com/1UQyLn7.png?w=310x700)
 
 ##### The property graph model for the mailing list is as follows:
 
